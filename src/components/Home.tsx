@@ -19,8 +19,8 @@ function Home() {
   return (
     <>
       <h1 className="text-center mt-10 text-3xl font-bold">List of Books</h1>
-      <div className="container mx-auto mt-10">
-        <div className="grid grid-cols-3 gap-4">
+      <div className="container mt-10 space-y-4">
+        <div className="flex flex-row space-x-4 flex-wrap justify-center items-center gap-y-4">
           {books.map((book) => (
             <div
               key={book.isbn}
