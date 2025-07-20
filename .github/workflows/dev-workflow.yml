@@ -1,7 +1,7 @@
 name: BookStore-fe - Dev
 on:
   push:
-    branches: [master]
+    branches: [main]
 jobs:
   build-and-push-to-docker-hub:
     timeout-minutes: 12
