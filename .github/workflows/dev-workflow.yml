@@ -64,7 +64,7 @@ jobs:
 
       - name: Set new image on deployment
         run: |
-          kubectl rollout restart deployment/bookstore-fe --namespace=bookstore-dev
+          kubectl rollout restart deployment/bookstore-dev-fe --namespace=bookstore-dev
       - name: Rollout status
         run: |
-          kubectl rollout status deployment/bookstore-fe --namespace=bookstore-dev
+          kubectl rollout status deployment/bookstore-dev-fe --namespace=bookstore-dev
