@@ -36,18 +36,18 @@ jobs:
         run: npm run build:dev
       - name: Build Docker image
         run: |
-          docker build -t mwakazi/bookstore-fe:${{ env.GH_VERSION_TAG }} .
+          docker build -t mwakazi/bookstore-dev-fe:${{ env.GH_VERSION_TAG }} .
       - name: Docker tag
         run: |
-          docker tag mwakazi/bookstore-fe:${{ env.GH_VERSION_TAG }} mwakazi/bookstore-fe:${{ env.GH_VERSION }}
+          docker tag mwakazi/bookstore-dev-fe:${{ env.GH_VERSION_TAG }} mwakazi/bookstore-dev-fe:${{ env.GH_VERSION }}
       - name: Push Docker image to Docker Hub
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_HUB_TOKEN }}
         run: |
           echo ${{ secrets.DOCKER_HUB_TOKEN }} | docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} --password-stdin
-          docker push mwakazi/bookstore-fe:${{ env.GH_VERSION }}
-          docker push mwakazi/bookstore-fe:${{ env.GH_VERSION_TAG }}
+          docker push mwakazi/bookstore-dev-fe:${{ env.GH_VERSION }}
+          docker push mwakazi/bookstore-dev-fe:${{ env.GH_VERSION_TAG }}
 
   rollout-to-k8s:
     runs-on: self-hosted
